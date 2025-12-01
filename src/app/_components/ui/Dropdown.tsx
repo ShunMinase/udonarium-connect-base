@@ -139,14 +139,14 @@ export default function Dropdown<T = any>({
       onKeyDown={handleKeyDown}
       disabled={disabled}
       className={`
-        relative ${width} rounded-md bg-white py-2 pl-3 pr-10 text-left border mt-1
+        relative ${width} rounded-[var(--radius-md)] bg-[var(--color-form-background)] py-2 pl-3 pr-10 text-left border mt-1
         focus:outline-none focus:ring-2
-        disabled:bg-primitive-neutral-200 disabled:text-primitive-neutral-500 hover:ring-primary transition duration-100 ease
+        disabled:bg-[var(--color-form-background-disabled)] disabled:text-[var(--color-primitive-neutral-500)] hover:ring-[var(--color-brand-orange)] transition duration-100 ease
         ${disabled
-          ? 'pointer-events-none border-primitive-neutral-300'
+          ? 'pointer-events-none border-[var(--color-form-border)]'
           : error
-            ? 'cursor-default border-error focus:ring-error focus:border-error'
-            : 'cursor-default border-primitive-neutral-300 focus:ring-primary focus:border-primary'
+            ? 'cursor-default border-[var(--color-error)] focus:ring-[var(--color-error)] focus:border-[var(--color-error)]'
+            : 'cursor-default border-[var(--color-form-border)] focus:ring-[var(--color-brand-orange)] focus:border-[var(--color-brand-orange)]'
         } ${buttonClassName}
       `}
     >
@@ -157,16 +157,16 @@ export default function Dropdown<T = any>({
           </span>
         )}
         {!showDescriptionOnButton &&
-          <span className={`block truncate ${selectedOption ? 'text-primitive-neutral-900' : 'text-primitive-neutral-500'}`}>
+          <span className={`block truncate ${selectedOption ? 'text-[var(--color-primitive-neutral-900)]' : 'text-[var(--color-form-placeholder)]'}`}>
             {selectedOption ? selectedOption.label : placeholder}
           </span>
         }
         {showDescriptionOnButton &&
           <div className="flex flex-col">
-            <span className={`block truncate ${selectedOption ? 'text-primitive-neutral-900' : 'text-primitive-neutral-500'}`}>
+            <span className={`block truncate ${selectedOption ? 'text-[var(--color-primitive-neutral-900)]' : 'text-[var(--color-form-placeholder)]'}`}>
               {selectedOption ? selectedOption.label : placeholder}
             </span>
-            <span className="text-[11px] text-primitive-neutral-600 truncate">
+            <span className="text-[11px] text-[var(--color-primitive-neutral-600)] truncate">
               {selectedOption?.description}
             </span>
           </div>
@@ -175,7 +175,7 @@ export default function Dropdown<T = any>({
 
       </span>
       <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-        <ChevronUpDownIcon className="h-4 w-4 text-neutral-400" aria-hidden="true" />
+        <ChevronUpDownIcon className="h-4 w-4 text-[var(--color-primitive-neutral-400)]" aria-hidden="true" />
       </span>
     </button>
   )
@@ -198,7 +198,7 @@ export default function Dropdown<T = any>({
         )}
       </div>
       {selected && (
-        <CheckIcon className="ml-2 h-4 w-4 text-primary" aria-hidden="true" />
+        <CheckIcon className="ml-2 h-4 w-4 text-[var(--color-brand-orange)]" aria-hidden="true" />
       )}
     </div>
   )
@@ -206,7 +206,7 @@ export default function Dropdown<T = any>({
   return (
     <div className={className}>
       {label && (
-        <label htmlFor={fieldId} className="block text-sm font-medium text-primitive-neutral-700">
+        <label htmlFor={fieldId} className="block text-sm font-medium text-[var(--color-primitive-neutral-700)]">
           {label}
         </label>
       )}
@@ -218,7 +218,7 @@ export default function Dropdown<T = any>({
           <div
             ref={refs.setFloating}
             style={floatingStyles}
-            className={`z-50 max-h-56 ${width} overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm ${optionsClassName}`}
+            className={`z-50 max-h-56 ${width} overflow-auto rounded-[var(--radius-md)] bg-[var(--color-card-background)] py-1 text-base shadow-[var(--elevation-3)] border border-[var(--color-card-border)] focus:outline-none sm:text-sm ${optionsClassName}`}
           >
             {options.map((option, optionIdx) => {
               const selected = option.value === value
@@ -230,8 +230,8 @@ export default function Dropdown<T = any>({
                   disabled={option.disabled}
                   className={`relative w-full cursor-default select-none py-2 px-3 text-left transition duration-100 ease ${option.disabled
                     ? 'opacity-50 cursor-not-allowed'
-                    : 'hover:bg-neutral-100'
-                    } ${selected ? 'bg-neutral-100' : 'text-primitive-neutral-900'
+                    : 'hover:bg-[var(--color-list-hover)]'
+                    } ${selected ? 'bg-[var(--color-primitive-orange-50)]' : 'text-[var(--color-primitive-neutral-900)]'
                     }`}
                 >
                   {renderOption
@@ -246,12 +246,12 @@ export default function Dropdown<T = any>({
       </div>
 
       {error && (
-        <p className="mt-1 text-sm text-error whitespace-pre-wrap">
+        <p className="mt-1 text-sm text-[var(--color-error)] whitespace-pre-wrap">
           {error}
         </p>
       )}
       {helperText && !error && (
-        <p className="mt-1 text-sm text-primitive-neutral-400 whitespace-pre-wrap">
+        <p className="mt-1 text-sm text-[var(--color-primitive-neutral-400)] whitespace-pre-wrap">
           {helperText}
         </p>
       )}

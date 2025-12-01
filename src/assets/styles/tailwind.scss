@@ -5,56 +5,41 @@
 // @import url("https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanjp.min.css");
 
 @theme {
-  /* Primitive Blue Colors */
-  --color-primitive-blue-50: #f8faff;
-  --color-primitive-blue-100: #f2f5ff;
-  --color-primitive-blue-200: #c5d7fb;
-  // --color-primitive-blue-300: #9fc0fa;
-  // --color-primitive-blue-400: #85b1f8;
-  // --color-primitive-blue-500: #6aa2f6;
-  // --color-primitive-blue-600: #5094f4;
-  // --color-primitive-blue-700: #4285e7;
-  // --color-primitive-blue-800: #3a74c7;
-  // --color-primitive-blue-900: #3463a7;
-  --color-primitive-blue-1000: #2f408a;
-  --color-primitive-blue-1100: #192969;
+  /* ユドコネベース ブランドカラー */
+  --color-brand-orange: #ff9966;
+  --color-brand-pink: #e9527e;
+  --color-brand-gradient-start: #ff9966;
+  --color-brand-gradient-end: #e9527e;
 
-  /* Primitive Red Colors */
-  --color-primitive-red-50: #fff5f5;
-  // --color-primitive-red-100: #fee2e2;
-  // --color-primitive-red-200: #fecaca;
-  // --color-primitive-red-300: #fca5a5;
-  // --color-primitive-red-400: #f87171;
-  --color-primitive-red-500: #e32626;
-  // --color-primitive-red-600: #dc2626;
-  // --color-primitive-red-700: #b91c1c;
-  // --color-primitive-red-800: #991b1b;
-  // --color-primitive-red-900: #7f1d1d;
+  /* Primitive Orange Colors (ブランドカラーベース) */
+  --color-primitive-orange-50: #fff8f5;
+  --color-primitive-orange-100: #ffefeb;
+  --color-primitive-orange-200: #ffd9cc;
+  --color-primitive-orange-300: #ffbfa0;
+  --color-primitive-orange-400: #ffa680;
+  --color-primitive-orange-500: #ff9966;
+  --color-primitive-orange-600: #ff7a3d;
+  --color-primitive-orange-700: #e65c1f;
+  --color-primitive-orange-800: #b34717;
+  --color-primitive-orange-900: #803310;
 
-  // --color-primitive-red-1000: #e32626;
-  --color-primitive-red-1000: #e54171;
-
-  /* Primitive Green Colors */
-  --color-primitive-green-50: #d6ffef;
-  --color-primitive-green-500: #2f8a67;
-
-  // --color-primitive-neutral-50: #f9fafb;
-  // --color-primitive-neutral-100: #f3f4f6;
-  // --color-primitive-neutral-200: #e5e7eb;
-  // --color-primitive-neutral-300: #d1d5db;
-  // --color-primitive-neutral-400: #9ca3af;
-  // --color-primitive-neutral-500: #6b7280;
-  // --color-primitive-neutral-600: #4b5563;
-  // --color-primitive-neutral-700: #374151;
-  // --color-primitive-neutral-800: #1f2937;
-  // --color-primitive-neutral-900: #111827;
+  /* Primitive Pink Colors (アクセントカラーベース) */
+  --color-primitive-pink-50: #fef2f5;
+  --color-primitive-pink-100: #fde6ec;
+  --color-primitive-pink-200: #faccd9;
+  --color-primitive-pink-300: #f7a3bb;
+  --color-primitive-pink-400: #f37a9e;
+  --color-primitive-pink-500: #e9527e;
+  --color-primitive-pink-600: #d93866;
+  --color-primitive-pink-700: #b32a52;
+  --color-primitive-pink-800: #8c203f;
+  --color-primitive-pink-900: #66182d;
 
   /* Primitive Neutral Colors */
   --color-primitive-neutral-0: #ffffff;
   --color-primitive-neutral-50: #fafafa;
   --color-primitive-neutral-100: #f5f5f5;
   --color-primitive-neutral-200: #e6e6e6;
-  // --color-primitive-neutral-200: #f1f1f3;
   --color-primitive-neutral-300: #cfcfcf;
   --color-primitive-neutral-400: #b3b3b3;
   --color-primitive-neutral-500: #6b7280;
@@ -64,21 +49,31 @@
   --color-primitive-neutral-900: #111827;
   --color-primitive-neutral-1000: #080808;
 
-  /* Primitive Yellow Colors */
-  --color-primitive-yellow-500: #ffd700;
+  /* Primitive Green Colors (成功・ポジティブ表示用) */
+  --color-primitive-green-50: #d6ffef;
+  --color-primitive-green-500: #2f8a67;
+
+  /* Primitive Red Colors (エラー・警告表示用) */
+  --color-primitive-red-50: #fff5f5;
+  --color-primitive-red-500: #e32626;
 
   /* Primitive Black Colors */
   --color-primitive-black: #000000;
 
   /* セマンティックカラー - ボタン */
   --color-button-outline-hover: var(--color-primitive-neutral-100);
-  --color-button-solid-default: var(--color-primitive-yellow-500);
-  --color-button-solid-hover: var(--color-primitive-neutral-0);
+  --color-button-solid-default: var(--color-brand-orange);
+  --color-button-solid-hover: var(--color-brand-pink);
   --color-button-solid-disabled: var(--color-primitive-neutral-300);
+
+  /* セマンティックカラー - リンク */
+  --color-link-default: var(--color-brand-orange);
+  --color-link-hover: var(--color-brand-pink);
+  --color-link-visited: var(--color-primitive-pink-700);
 
   /* セマンティックカラー - リスト */
   --color-list-hover: var(--color-primitive-neutral-200);
-  --color-list-active: var(--color-primitive-yellow-500);
+  --color-list-active: var(--color-brand-orange);
 
   /* セマンティックカラー - フォーム */
   --color-form-border: var(--color-primitive-neutral-400);
@@ -87,24 +82,42 @@
   --color-form-background-disabled: var(--color-primitive-neutral-200);
 
   /* セマンティックカラー - 背景 */
-  --color-background-primary: var(--color-primitive-yellow-500);
+  --color-background-primary: var(--color-primitive-neutral-0);
   --color-background-secondary: var(--color-primitive-neutral-50);
-  --color-background-tertiary: var(--color-primitive-neutral-0);
+  --color-background-tertiary: var(--color-primitive-neutral-100);
+  --color-background-accent: var(--color-brand-orange);
+
+  /* セマンティックカラー - カード */
+  --color-card-background: var(--color-primitive-neutral-0);
+  --color-card-border: var(--color-primitive-neutral-200);
+  --color-card-shadow: rgba(0, 0, 0, 0.08);
 
   /* レガシーカラー（後方互換性のため） */
-  --color-primary: var(--color-primitive-yellow-500);
-  --color-primary-hover: var(--color-primitive-neutral-0);
-  --color-primary-light: var(--color-primitive-neutral-50);
+  --color-primary: var(--color-brand-orange);
+  --color-primary-hover: var(--color-brand-pink);
+  --color-primary-light: var(--color-primitive-orange-50);
   --color-secondary: var(--color-primitive-neutral-600);
   --color-secondary-hover: var(--color-primitive-neutral-700);
-  --color-error: var(--color-primitive-red-1000);
+  --color-error: var(--color-primitive-red-500);
   --color-error-light: var(--color-primitive-red-50);
 
   /* フォント設定 */
-  --font-family-sans: "Gantari", "Noto Sans JP", "Helvetica", "arial", sans-serif;
+  --font-family-sans: "M PLUS Rounded 1c", "Noto Sans JP", "Helvetica", "arial", sans-serif;
 
   /* レタースペース */
   --letter-spacing-custom: 0.02em;
+
+  /* ボーダーラディウス */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Material Design Elevation (シャドウ) */
+  --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --elevation-2: 0 2px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+  --elevation-3: 0 4px 12px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
+  --elevation-4: 0 8px 24px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.08);
 }
 
 /* カスタムアニメーション */

@@ -54,7 +54,7 @@ export default function ToggleSwitch({
       onKeyDown={handleKeyDown}
       className={`
         relative inline-flex w-10 h-6 rounded-full transition-colors focus:outline-none flex-shrink-0
-        ${checked ? 'bg-primitive-blue-1000' : 'bg-neutral-200'}
+        ${checked ? 'bg-gradient-to-r from-[var(--color-brand-gradient-start)] to-[var(--color-brand-gradient-end)]' : 'bg-[var(--color-primitive-neutral-200)]'}
         ${disabled ? 'opacity-50 pointer-events-none' : 'cursor-pointer'}
         ${className}
       `}

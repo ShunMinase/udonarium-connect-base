@@ -40,12 +40,12 @@ body {
   max-width: 100%;
   -webkit-text-size-adjust: 100%; //一部のモバイル端末で使われる、テキストの自動拡大アルゴリズムを制御
   // font-size: 16px;
-  font-weight: v.$fw_regular_400;
+  font-weight: v.$fw_medium_500;
   /* Tailwind v4のthemeで定義したフォントファミリーとレタースペースを適用 */
   font-family: v.$noto;
   letter-spacing: 0.05em;
   color: v.$letter_primary;
-  background: v.$navy;
+  background: v.$bg_primary;
   overflow-y: scroll;
   overflow-x: clip;
   ::selection {

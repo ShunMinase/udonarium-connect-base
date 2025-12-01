@@ -6,12 +6,13 @@ import React from 'react'
 import HeadlessLink, { HeadlessLinkProps } from '../HeadlessLink'
 import HeadlessButton, { HeadlessButtonProps } from '../HeadlessButton'
 import { ExternalLinkIcon } from '@/app/_components/icons/SvgIcons'
-import { getStyledClasses, getWidthStyle, Size } from './styles'
+import { getStyledClasses, getWidthStyle, Size, ColorScheme } from './styles'
 
 // 共通のプロパティ
 interface BaseProps {
   size?: Size
   width?: string | number
+  colorScheme?: ColorScheme // 一貫性のため追加（solidPrimaryは常にグラデーション）
   className?: string
   children: React.ReactNode
 }
@@ -41,6 +42,7 @@ const SolidPrimary: React.FC<SolidPrimaryProps> = (props) => {
   const {
     size = 'md',
     width,
+    colorScheme = 'white',
     className = '',
     children,
     ...rest
@@ -48,7 +50,7 @@ const SolidPrimary: React.FC<SolidPrimaryProps> = (props) => {
 
   const isDisabledOrLoading = ('disabled' in props ? props.disabled : false) || ('loading' in props ? props.loading : false) || false
 
-  const styledClasses = getStyledClasses('solidPrimary', size, width, isDisabledOrLoading, className)
+  const styledClasses = getStyledClasses('solidPrimary', size, width, isDisabledOrLoading, colorScheme, className)
   const style = getWidthStyle(width)
 
   // 外部リンクかどうかを判定

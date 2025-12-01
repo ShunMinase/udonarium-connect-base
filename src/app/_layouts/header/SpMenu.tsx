@@ -6,7 +6,7 @@ import { useEffect } from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import HeadlessLink from "@/app/_components/ui/HeadlessLink"
-import { YOUTUBE_URL, X_URL } from "@/app/_config/Constants"
+// import { YOUTUBE_URL, X_URL } from "@/app/_config/Constants"
 import { useAtom } from "jotai"
 import { currentPageAtom } from "@/app/_jotai/GlobalAtom"
 // コンポーネント

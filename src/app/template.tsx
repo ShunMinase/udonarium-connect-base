@@ -11,15 +11,12 @@ import Lenis from "lenis";
 
 import { setDvh, setSvh } from '@/app/_modules/screen';
 import { useEffect } from 'react';
-import Footer from "@/app/_layouts/footer/Footer";
 import useLoading from "./_hooks/useTransition";
 import TransitionDiv from "./_layouts/TransitionDiv";
-import Header from "./_layouts/header/Header";
 import { useLenis } from "./_hooks/useLenis";
-import MouseStalker from "./_components/ui/MouseStalker";
-import useCommonHeader from "./_hooks/useCommonHeader";
 import { useAtom } from "jotai";
 import { currentPageAtom } from "./_jotai/GlobalAtom";
+import MouseStalker from "./_components/ui/MouseStalker";
 
 // クライアントコンポーネント
 // このコンポーネントは、layout.tsxの内側で読み込まれ、すべてのページに共通のレイアウトを提供する
@@ -28,7 +25,6 @@ import { currentPageAtom } from "./_jotai/GlobalAtom";
 export default function Template({ children }: { children: React.ReactNode }) {
 
   // usePageView();
-  const commonHeader = useCommonHeader()
   const [currentPageName, setCurrentPageName] = useAtom(currentPageAtom)
 
   const { setLenisInstance } = useLenis();
@@ -73,7 +69,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     <>
       {/* <NextTopLoader color="#999" showSpinner={false} height={4} /> */}
       <MouseStalker />
-      {commonHeader.enabled && <Header />}
+
       <TransitionDiv>
         {children}
       </TransitionDiv>

@@ -101,36 +101,140 @@ export const LinkExamples: React.FC = () => {
         title="Variants"
         description="利用可能なバリアントの一覧"
       >
-        <ExampleItem
-          title="solidPrimary"
-          code={`<SolidPrimary as="link" href="#">リンク</SolidPrimary>`}
-        >
-          <SolidPrimary as="link" href="#" size="md">リンク</SolidPrimary>
-        </ExampleItem>
-        <ExampleItem
-          title="solidSecondary"
-          code={`<SolidSecondary as="link" href="#">リンク</SolidSecondary>`}
-        >
-          <SolidSecondary as="link" href="#" size="md">リンク</SolidSecondary>
-        </ExampleItem>
-        <ExampleItem
-          title="outline"
-          code={`<Outline as="link" href="#">リンク</Outline>`}
-        >
-          <Outline as="link" href="#" size="md">リンク</Outline>
-        </ExampleItem>
-        <ExampleItem
-          title="text"
-          code={`<Text as="link" href="#">リンク</Text>`}
-        >
-          <Text as="link" href="#" size="md">リンク</Text>
-        </ExampleItem>
-        <ExampleItem
-          title="ghost"
-          code={`<Ghost as="link" href="#">リンク</Ghost>`}
-        >
-          <Ghost as="link" href="#" size="md">リンク</Ghost>
-        </ExampleItem>
+        <div className="bg-primitive-neutral-100 p-6 rounded-lg">
+          <ExampleItem
+            title="solidPrimary"
+            code={`<SolidPrimary as="link" href="#">リンク</SolidPrimary>`}
+          >
+            <SolidPrimary as="link" href="#" size="md">リンク</SolidPrimary>
+          </ExampleItem>
+          <ExampleItem
+            title="solidSecondary"
+            code={`<SolidSecondary as="link" href="#">リンク</SolidSecondary>`}
+          >
+            <SolidSecondary as="link" href="#" size="md">リンク</SolidSecondary>
+          </ExampleItem>
+          <ExampleItem
+            title="outline"
+            code={`<Outline as="link" href="#">リンク</Outline>`}
+          >
+            <Outline as="link" href="#" size="md">リンク</Outline>
+          </ExampleItem>
+          <ExampleItem
+            title="text"
+            code={`<Text as="link" href="#">リンク</Text>`}
+          >
+            <Text as="link" href="#" size="md">リンク</Text>
+          </ExampleItem>
+          <ExampleItem
+            title="ghost"
+            code={`<Ghost as="link" href="#">リンク</Ghost>`}
+          >
+            <Ghost as="link" href="#" size="md">リンク</Ghost>
+          </ExampleItem>
+        </div>
+      </VariantGroup>
+
+      {/* ColorScheme サンプル */}
+      <VariantGroup
+        title="Color Schemes"
+        description="背景色に応じたボタンのカラーバリエーション（white / orange）"
+      >
+        <div className="space-y-6">
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+            <h5 className="font-semibold text-blue-800 mb-2">🎨 colorScheme の使い分け</h5>
+            <ul className="text-sm text-blue-700 space-y-1">
+              <li>• <code className="bg-white px-2 py-1 rounded">colorScheme=&quot;white&quot;</code>: 白背景ページ用（デフォルト）</li>
+              <li>• <code className="bg-white px-2 py-1 rounded">colorScheme=&quot;orange&quot;</code>: グラデーション/オレンジ背景用</li>
+              <li>• SolidPrimary は常にグラデーション（colorScheme 指定不要）</li>
+            </ul>
+          </div>
+
+          {/* 白背景用 */}
+          <div className="bg-primitive-neutral-100 p-6 rounded-lg">
+            <h5 className="font-medium text-primitive-neutral-700 mb-4">白背景用（colorScheme=&quot;white&quot; - デフォルト）</h5>
+            <div className="space-y-4">
+              <ExampleItem
+                title="SolidPrimary（常にグラデーション）"
+                code={`<SolidPrimary as="button">プライマリアクション</SolidPrimary>`}
+              >
+                <SolidPrimary as="button" size="md">プライマリアクション</SolidPrimary>
+              </ExampleItem>
+              <ExampleItem
+                title="SolidSecondary（白背景 + オレンジテキスト）"
+                code={`<SolidSecondary as="button" colorScheme="white">セカンダリ</SolidSecondary>`}
+              >
+                <SolidSecondary as="button" colorScheme="white" size="md">セカンダリ</SolidSecondary>
+              </ExampleItem>
+              <ExampleItem
+                title="Outline（透明背景 + オレンジボーダー）"
+                code={`<Outline as="button" colorScheme="white">詳細を見る</Outline>`}
+              >
+                <Outline as="button" colorScheme="white" size="md">詳細を見る</Outline>
+              </ExampleItem>
+              <ExampleItem
+                title="Text（オレンジテキスト）"
+                code={`<Text as="link" href="#" colorScheme="white">もっと見る</Text>`}
+              >
+                <Text as="link" href="#" colorScheme="white" size="md">もっと見る</Text>
+              </ExampleItem>
+            </div>
+          </div>
+
+          {/* グラデーション背景用 */}
+          <div className="bg-gradient-to-r from-[var(--color-brand-gradient-start)] to-[var(--color-brand-gradient-end)] p-6 rounded-lg">
+            <h5 className="font-medium text-white mb-4">グラデーション背景用（colorScheme=&quot;orange&quot;）</h5>
+            <div className="space-y-4">
+              <ExampleItem
+                title="SolidPrimary（常にグラデーション）"
+                code={`<SolidPrimary as="button">プライマリアクション</SolidPrimary>`}
+              >
+                <SolidPrimary as="button" size="md">プライマリアクション</SolidPrimary>
+              </ExampleItem>
+              <ExampleItem
+                title="SolidSecondary（オレンジ背景 + 白テキスト）"
+                code={`<SolidSecondary as="button" colorScheme="orange">セカンダリ</SolidSecondary>`}
+              >
+                <SolidSecondary as="button" colorScheme="orange" size="md">セカンダリ</SolidSecondary>
+              </ExampleItem>
+              <ExampleItem
+                title="Outline（透明背景 + 白ボーダー）"
+                code={`<Outline as="button" colorScheme="orange">詳細を見る</Outline>`}
+              >
+                <Outline as="button" colorScheme="orange" size="md">詳細を見る</Outline>
+              </ExampleItem>
+              <ExampleItem
+                title="Text（白テキスト）"
+                code={`<Text as="link" href="#" colorScheme="orange">もっと見る</Text>`}
+              >
+                <Text as="link" href="#" colorScheme="orange" size="md">もっと見る</Text>
+              </ExampleItem>
+            </div>
+          </div>
+
+          {/* 実践的な使用例 */}
+          <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+            <h5 className="font-semibold text-amber-800 mb-2">💡 実践例</h5>
+            <div className="text-sm text-amber-700 space-y-2">
+              <p><strong>ヒーローセクション（グラデーション背景）:</strong></p>
+              <code className="block bg-white p-2 rounded text-xs whitespace-pre">{`<section className="bg-gradient-to-r from-[var(--color-brand-gradient-start)] to-[var(--color-brand-gradient-end)]">
+  <SolidSecondary as="link" href="/games" colorScheme="orange">
+    ゲーム一覧
+  </SolidSecondary>
+  <Outline as="link" href="/about" colorScheme="orange">
+    詳しく見る
+  </Outline>
+</section>`}</code>
+              <p className="mt-2"><strong>通常セクション（白背景）:</strong></p>
+              <code className="block bg-white p-2 rounded text-xs whitespace-pre">{`<section className="bg-white">
+  <SolidPrimary as="button" onClick={handleSubmit}>
+    送信する
+  </SolidPrimary>
+  <SolidSecondary as="button">キャンセル</SolidSecondary>
+</section>`}</code>
+            </div>
+          </div>
+        </div>
       </VariantGroup>
 
       {/* サイズ別サンプル */}
@@ -138,24 +242,26 @@ export const LinkExamples: React.FC = () => {
         title="Sizes"
         description="利用可能なサイズの一覧"
       >
-        <ExampleItem
-          title="size='sm'"
-          code={`<SolidPrimary as="link" href="#" size="sm">リンク</SolidPrimary>`}
-        >
-          <SolidPrimary as="link" href="#" size="sm">リンク</SolidPrimary>
-        </ExampleItem>
-        <ExampleItem
-          title="size='md'"
-          code={`<SolidPrimary as="link" href="#" size="md">リンク</SolidPrimary>`}
-        >
-          <SolidPrimary as="link" href="#" size="md">リンク</SolidPrimary>
-        </ExampleItem>
-        <ExampleItem
-          title="size='lg'"
-          code={`<SolidPrimary as="link" href="#" size="lg">リンク</SolidPrimary>`}
-        >
-          <SolidPrimary as="link" href="#" size="lg">リンク</SolidPrimary>
-        </ExampleItem>
+        <div className="bg-primitive-neutral-100 p-6 rounded-lg">
+          <ExampleItem
+            title="size='sm'"
+            code={`<SolidPrimary as="link" href="#" size="sm">リンク</SolidPrimary>`}
+          >
+            <SolidPrimary as="link" href="#" size="sm">リンク</SolidPrimary>
+          </ExampleItem>
+          <ExampleItem
+            title="size='md'"
+            code={`<SolidPrimary as="link" href="#" size="md">リンク</SolidPrimary>`}
+          >
+            <SolidPrimary as="link" href="#" size="md">リンク</SolidPrimary>
+          </ExampleItem>
+          <ExampleItem
+            title="size='lg'"
+            code={`<SolidPrimary as="link" href="#" size="lg">リンク</SolidPrimary>`}
+          >
+            <SolidPrimary as="link" href="#" size="lg">リンク</SolidPrimary>
+          </ExampleItem>
+        </div>
       </VariantGroup>
 
       {/* 外部リンク例 */}
@@ -163,27 +269,29 @@ export const LinkExamples: React.FC = () => {
         title="External Links"
         description="別タブで開く外部リンクの例（target='_blank'でopen_in_newアイコンが表示）"
       >
-        <ExampleItem
-          title="外部リンク"
-          code={`<SolidPrimary as="link" href="https://example.com" target="_blank">外部サイト</SolidPrimary>`}
-        >
-          <SolidPrimary as="link" href="https://example.com" size="md" target="_blank">外部サイト</SolidPrimary>
-        </ExampleItem>
+        <div className="bg-primitive-neutral-100 p-6 rounded-lg">
+          <ExampleItem
+            title="外部リンク"
+            code={`<SolidPrimary as="link" href="https://example.com" target="_blank">外部サイト</SolidPrimary>`}
+          >
+            <SolidPrimary as="link" href="https://example.com" size="md" target="_blank">外部サイト</SolidPrimary>
+          </ExampleItem>
 
-        <ExampleItem
-          title="外部リンク（各バリアント）"
-          code={`<SolidPrimary as="link" href="https://example.com" target="_blank">SolidPrimary</SolidPrimary>
+          <ExampleItem
+            title="外部リンク（各バリアント）"
+            code={`<SolidPrimary as="link" href="https://example.com" target="_blank">SolidPrimary</SolidPrimary>
 <Outline as="link" href="https://example.com" target="_blank">Outline</Outline>
 <Text as="link" href="https://example.com" target="_blank">Text</Text>
 <Ghost as="link" href="https://example.com" target="_blank">Ghost</Ghost>`}
-        >
-          <div className="flex gap-2 flex-wrap">
-            <SolidPrimary as="link" href="https://example.com" size="md" target="_blank">SolidPrimary</SolidPrimary>
-            <Outline as="link" href="https://example.com" size="md" target="_blank">Outline</Outline>
-            <Text as="link" href="https://example.com" size="md" target="_blank">Text</Text>
-            <Ghost as="link" href="https://example.com" size="md" target="_blank">Ghost</Ghost>
-          </div>
-        </ExampleItem>
+          >
+            <div className="flex gap-2 flex-wrap">
+              <SolidPrimary as="link" href="https://example.com" size="md" target="_blank">SolidPrimary</SolidPrimary>
+              <Outline as="link" href="https://example.com" size="md" target="_blank">Outline</Outline>
+              <Text as="link" href="https://example.com" size="md" target="_blank">Text</Text>
+              <Ghost as="link" href="https://example.com" size="md" target="_blank">Ghost</Ghost>
+            </div>
+          </ExampleItem>
+        </div>
       </VariantGroup>
 
       {/* 全組み合わせサンプル */}
@@ -191,46 +299,48 @@ export const LinkExamples: React.FC = () => {
         title="All Combinations"
         description="すべてのバリアントとサイズの組み合わせ"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 w-full">
-          {/* SolidPrimary */}
-          <div className="space-y-3">
-            <h5 className="font-medium text-primitive-neutral-700 capitalize">solidPrimary</h5>
-            <SolidPrimary as="link" href="#" size="xs">solidPrimary xs</SolidPrimary>
-            <SolidPrimary as="link" href="#" size="sm">solidPrimary sm</SolidPrimary>
-            <SolidPrimary as="link" href="#" size="md">solidPrimary md</SolidPrimary>
-            <SolidPrimary as="link" href="#" size="lg">solidPrimary lg</SolidPrimary>
-          </div>
-          {/* SolidSecondary */}
-          <div className="space-y-3">
-            <h5 className="font-medium text-primitive-neutral-700 capitalize">solidSecondary</h5>
-            <SolidSecondary as="link" href="#" size="xs">solidSecondary xs</SolidSecondary>
-            <SolidSecondary as="link" href="#" size="sm">solidSecondary sm</SolidSecondary>
-            <SolidSecondary as="link" href="#" size="md">solidSecondary md</SolidSecondary>
-            <SolidSecondary as="link" href="#" size="lg">solidSecondary lg</SolidSecondary>
-          </div>
-          {/* Outline */}
-          <div className="space-y-3">
-            <h5 className="font-medium text-primitive-neutral-700 capitalize">outline</h5>
-            <Outline as="link" href="#" size="xs">outline xs</Outline>
-            <Outline as="link" href="#" size="sm">outline sm</Outline>
-            <Outline as="link" href="#" size="md">outline md</Outline>
-            <Outline as="link" href="#" size="lg">outline lg</Outline>
-          </div>
-          {/* Text */}
-          <div className="space-y-3">
-            <h5 className="font-medium text-primitive-neutral-700 capitalize">text</h5>
-            <Text as="link" href="#" size="xs">text xs</Text>
-            <Text as="link" href="#" size="sm">text sm</Text>
-            <Text as="link" href="#" size="md">text md</Text>
-            <Text as="link" href="#" size="lg">text lg</Text>
-          </div>
-          {/* Ghost */}
-          <div className="space-y-3">
-            <h5 className="font-medium text-primitive-neutral-700 capitalize">ghost</h5>
-            <Ghost as="link" href="#" size="xs">ghost xs</Ghost>
-            <Ghost as="link" href="#" size="sm">ghost sm</Ghost>
-            <Ghost as="link" href="#" size="md">ghost md</Ghost>
-            <Ghost as="link" href="#" size="lg">ghost lg</Ghost>
+        <div className="bg-primitive-neutral-100 p-6 rounded-lg">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 w-full">
+            {/* SolidPrimary */}
+            <div className="space-y-3">
+              <h5 className="font-medium text-primitive-neutral-700 capitalize">solidPrimary</h5>
+              <SolidPrimary as="link" href="#" size="xs">solidPrimary xs</SolidPrimary>
+              <SolidPrimary as="link" href="#" size="sm">solidPrimary sm</SolidPrimary>
+              <SolidPrimary as="link" href="#" size="md">solidPrimary md</SolidPrimary>
+              <SolidPrimary as="link" href="#" size="lg">solidPrimary lg</SolidPrimary>
+            </div>
+            {/* SolidSecondary */}
+            <div className="space-y-3">
+              <h5 className="font-medium text-primitive-neutral-700 capitalize">solidSecondary</h5>
+              <SolidSecondary as="link" href="#" size="xs">solidSecondary xs</SolidSecondary>
+              <SolidSecondary as="link" href="#" size="sm">solidSecondary sm</SolidSecondary>
+              <SolidSecondary as="link" href="#" size="md">solidSecondary md</SolidSecondary>
+              <SolidSecondary as="link" href="#" size="lg">solidSecondary lg</SolidSecondary>
+            </div>
+            {/* Outline */}
+            <div className="space-y-3">
+              <h5 className="font-medium text-primitive-neutral-700 capitalize">outline</h5>
+              <Outline as="link" href="#" size="xs">outline xs</Outline>
+              <Outline as="link" href="#" size="sm">outline sm</Outline>
+              <Outline as="link" href="#" size="md">outline md</Outline>
+              <Outline as="link" href="#" size="lg">outline lg</Outline>
+            </div>
+            {/* Text */}
+            <div className="space-y-3">
+              <h5 className="font-medium text-primitive-neutral-700 capitalize">text</h5>
+              <Text as="link" href="#" size="xs">text xs</Text>
+              <Text as="link" href="#" size="sm">text sm</Text>
+              <Text as="link" href="#" size="md">text md</Text>
+              <Text as="link" href="#" size="lg">text lg</Text>
+            </div>
+            {/* Ghost */}
+            <div className="space-y-3">
+              <h5 className="font-medium text-primitive-neutral-700 capitalize">ghost</h5>
+              <Ghost as="link" href="#" size="xs">ghost xs</Ghost>
+              <Ghost as="link" href="#" size="sm">ghost sm</Ghost>
+              <Ghost as="link" href="#" size="md">ghost md</Ghost>
+              <Ghost as="link" href="#" size="lg">ghost lg</Ghost>
+            </div>
           </div>
         </div>
       </VariantGroup>
@@ -251,60 +361,62 @@ export const LinkExamples: React.FC = () => {
             </ul>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* 数値指定 */}
-            <div>
-              <h5 className="font-medium text-primitive-neutral-700 mb-3">数値指定（px単位）</h5>
-              <div className="space-y-3">
-                <ExampleItem
-                  title="幅120px"
-                  code={`<SolidPrimary as="button" width={120}>120px Button</SolidPrimary>`}
-                >
-                  <SolidPrimary as="button" size="md" width={120}>120px Button</SolidPrimary>
-                </ExampleItem>
-                <ExampleItem
-                  title="幅200px"
-                  code={`<SolidPrimary as="link" href="/about" width={200}>200px Link</SolidPrimary>`}
-                >
-                  <SolidPrimary as="link" href="/about" size="md" width={200}>200px Link</SolidPrimary>
-                </ExampleItem>
-                <ExampleItem
-                  title="幅300px（長いテキスト）"
-                  code={`<SolidPrimary as="button" width={300}>Very Long Button Text Example</SolidPrimary>`}
-                >
-                  <SolidPrimary as="button" size="md" width={300}>Very Long Button Text Example</SolidPrimary>
-                </ExampleItem>
+          <div className="bg-primitive-neutral-100 p-6 rounded-lg">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* 数値指定 */}
+              <div>
+                <h5 className="font-medium text-primitive-neutral-700 mb-3">数値指定（px単位）</h5>
+                <div className="space-y-3">
+                  <ExampleItem
+                    title="幅120px"
+                    code={`<SolidPrimary as="button" width={120}>120px Button</SolidPrimary>`}
+                  >
+                    <SolidPrimary as="button" size="md" width={120}>120px Button</SolidPrimary>
+                  </ExampleItem>
+                  <ExampleItem
+                    title="幅200px"
+                    code={`<SolidPrimary as="link" href="/about" width={200}>200px Link</SolidPrimary>`}
+                  >
+                    <SolidPrimary as="link" href="/about" size="md" width={200}>200px Link</SolidPrimary>
+                  </ExampleItem>
+                  <ExampleItem
+                    title="幅300px（長いテキスト）"
+                    code={`<SolidPrimary as="button" width={300}>Very Long Button Text Example</SolidPrimary>`}
+                  >
+                    <SolidPrimary as="button" size="md" width={300}>Very Long Button Text Example</SolidPrimary>
+                  </ExampleItem>
+                </div>
               </div>
-            </div>
 
-            {/* 文字列指定 */}
-            <div>
-              <h5 className="font-medium text-primitive-neutral-700 mb-3">文字列指定（CSS単位）</h5>
-              <div className="space-y-3">
-                <ExampleItem
-                  title="rem単位"
-                  code={`<SolidPrimary as="button" width="12rem">12rem Button</SolidPrimary>`}
-                >
-                  <SolidPrimary as="button" size="md" width="12rem">12rem Button</SolidPrimary>
-                </ExampleItem>
-                <ExampleItem
-                  title="パーセント"
-                  code={`<SolidPrimary as="link" href="/portfolio" width="50%">50% Width Link</SolidPrimary>`}
-                >
-                  <SolidPrimary as="link" href="/portfolio" size="md" width="50%">50% Width Link</SolidPrimary>
-                </ExampleItem>
-                <ExampleItem
-                  title="vw単位"
-                  code={`<SolidPrimary as="button" width="25vw">25vw Button</SolidPrimary>`}
-                >
-                  <SolidPrimary as="button" size="md" width="25vw">25vw Button</SolidPrimary>
-                </ExampleItem>
+              {/* 文字列指定 */}
+              <div>
+                <h5 className="font-medium text-primitive-neutral-700 mb-3">文字列指定（CSS単位）</h5>
+                <div className="space-y-3">
+                  <ExampleItem
+                    title="rem単位"
+                    code={`<SolidPrimary as="button" width="12rem">12rem Button</SolidPrimary>`}
+                  >
+                    <SolidPrimary as="button" size="md" width="12rem">12rem Button</SolidPrimary>
+                  </ExampleItem>
+                  <ExampleItem
+                    title="パーセント"
+                    code={`<SolidPrimary as="link" href="/portfolio" width="50%">50% Width Link</SolidPrimary>`}
+                  >
+                    <SolidPrimary as="link" href="/portfolio" size="md" width="50%">50% Width Link</SolidPrimary>
+                  </ExampleItem>
+                  <ExampleItem
+                    title="vw単位"
+                    code={`<SolidPrimary as="button" width="25vw">25vw Button</SolidPrimary>`}
+                  >
+                    <SolidPrimary as="button" size="md" width="25vw">25vw Button</SolidPrimary>
+                  </ExampleItem>
+                </div>
               </div>
             </div>
           </div>
 
           {/* バリアント×幅の組み合わせ */}
-          <div>
+          <div className="bg-primitive-neutral-100 p-6 rounded-lg">
             <h5 className="font-medium text-primitive-neutral-700 mb-3">バリアント × 幅の組み合わせ</h5>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <ExampleItem

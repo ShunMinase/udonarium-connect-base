@@ -11,7 +11,8 @@ import { GOOGLE_ANALYTICS_ID, SITE_DESCRIPTION_BASE, SITE_TITLE } from "@/app/_c
 import { composeMetaData, composeSiteTitle } from "@/app/_modules/seo";
 // import { JotaiProvider } from "@/app/_providers/JotaiProvider";
 import { Provider as JotaiProvider } from 'jotai';
-import Footer from '@/app/_layouts/footer/Footer';
+import Footer from '@/app/_components/Footer';
+import Header from '@/app/_components/Header';
 
 // import { GoogleAnalytics, usePageView } from '@/modules/gtag';
 import { GoogleAnalytics } from "@next/third-parties/google"; // インポート
@@ -36,12 +37,21 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
 
   return (
     <html lang="ja">
+      <head>
+        {/* TODO もうちょいいい読み込み方ない？ */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        />
+      </head>
       <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
-      <body>
+      <body className="flex flex-col min-h-screen">
         <JotaiProvider>
-          <main className="main-content">
+          <Header />
+          <main className="flex-1">
             {children}
           </main>
+          <Footer />
         </JotaiProvider>
       </body>
     </html>

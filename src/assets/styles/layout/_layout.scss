@@ -500,6 +500,7 @@
   マウスストーカー
 =======================================*/
 #mouse_stalker {
+  display: none;
   pointer-events: none;
   z-index: 9500;
   @include m.hover_device {

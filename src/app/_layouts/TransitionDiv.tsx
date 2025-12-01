@@ -7,7 +7,6 @@ import styles from '@/styles/Home.module.css'
 // import 'react-toastify/dist/ReactToastify.css';
 
 
-import Footer from './footer/Footer';
 import { transform } from 'next/dist/build/swc';
 import React from 'react';
 import { usePathname } from 'next/navigation';
@@ -16,8 +15,7 @@ import { gsap } from "gsap";
 import { addClass, qs, removeClass } from '../_modules/qs';
 import { useAtom } from 'jotai';
 import { currentPageAtom } from '../_jotai/GlobalAtom';
-import StarryBackground from '../_components/ui/StarryBackground';
-import FloatingOrbs from '../_components/ui/FloatingOrbs';
+
 
 type Props = {
   children: ReactNode
@@ -80,13 +78,10 @@ export default function TransitionDiv(props: Props) {
       >
         <div className="noise_background"></div>
         <div id="page_background" className={" " + (currentPageName === "contact" ? "" : "active")}></div>
-        <FloatingOrbs />
-        <StarryBackground />
 
         {/* 初回リロード時、読み込みが完了していない中途半端な状態で画面が表示されてしまい、読み込み完了時に画面がガッとなるため、opacity: 0で非表示にしておく */}
         <div className={`transition_container`} style={{ opacity: 0 }}>
           {props.children}
-          <Footer />
         </div>
       </div>
     </>
