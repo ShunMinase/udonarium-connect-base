@@ -1,0 +1,109 @@
+@use "@/assets/styles/foundation/variables" as v;
+@use "@/assets/styles/foundation/mixin" as m;
+
+.u__ib {
+  display: inline-block;
+}
+.u__il {
+  display: inline;
+}
+.u__bl {
+  display: block;
+}
+.u__none {
+  display: none;
+}
+.u__bold {
+  font-weight: v.$fw_semibold_600;
+}
+.u__pc_none {
+  display: none;
+  @include m.tab {
+    display: block;
+  }
+  @include m.sp {
+    display: block;
+  }
+}
+.u__pc_only {
+  display: block;
+  @include m.tab {
+    display: none;
+  }
+  @include m.sp {
+    display: none;
+  }
+}
+.u__tab_none {
+  display: block;
+  @include m.tab {
+    display: none;
+  }
+  @include m.sp {
+    display: block;
+  }
+}
+.u__tab_only {
+  display: none;
+  @include m.tab {
+    display: block;
+  }
+  @include m.sp {
+    display: none;
+  }
+}
+.u__sp_none {
+  display: block;
+  @include m.sp {
+    display: none;
+  }
+}
+.u__sp_only {
+  display: none;
+  @include m.sp {
+    display: block;
+  }
+}
+
+//== font-size 0.1em ～ 3em まで ==//
+@for $i from 1 through 9 {
+  .u__fs_0#{$i} {
+    font-size: #{$i * 0.1}em;
+  }
+}
+@for $i from 10 through 30 {
+  .u__fs_#{$i} {
+    font-size: #{$i * 0.1}em;
+  }
+}
+
+//== 余白調整用 0px～200pxまで 4px刻み ==//
+// @for $i from 0 through 50 {
+//   .u__mt_#{$i * 4} {
+//     margin-top: #{$i * 4}px;
+//   }
+// }
+// @for $i from 0 through 50 {
+//   .u__mb_#{$i * 4} {
+//     margin-bottom: #{$i * 4}px;
+//   }
+// }
+@for $i from 1 through 9 {
+  .u__mt_0#{$i} {
+    margin-top: #{$i * 0.1}em;
+  }
+}
+@for $i from 10 through 30 {
+  .u__mt_#{$i} {
+    margin-top: #{$i * 0.1}em;
+  }
+}
+@for $i from 1 through 9 {
+  .u__ml_0#{$i} {
+    margin-left: #{$i * 0.1}em;
+  }
+}
+
+.u__use_wbr {
+  @include m.use_wbr;
+}

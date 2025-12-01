@@ -1,0 +1,124 @@
+@use "../foundation/variables" as v;
+@use "sass:math";
+@use "sass:meta";
+
+/*=======================================
+  関数
+=======================================*/
+//単位を取り除く
+@function trim_unit($number) {
+  @if meta.type-of($number) != number {
+    @warn '#{ $number } is not a number.';
+    @return $number;
+  }
+  @return $number / ($number * 0 + 1);
+}
+// アドレスバーを含まないvhを動的に取得
+@function dvh($num) {
+  @return calc((var(--dvh, 1vh) * $num));
+}
+// アドレスバーを含まないvh(初期値)を取得
+@function svh($num) {
+  @return calc((var(--svh, 1vh) * $num));
+}
+// clamp推奨値自動生成 clamp_prefered
+// todo clamp_autoみたいな名前にしたい
+@function clamp_prf($min, $max) {
+  @if meta.type-of($min) != number {
+    @warn 'min #{ $min } is not a number.';
+    @return $min;
+  }
+  @if meta.type-of($max) != number {
+    @warn 'max #{ $max } is not a number.';
+    @return $max;
+  }
+  $base: decimal-round(calc(v.$pc_min / 100), 2);
+  $prefered: decimal-round(calc($max / $base * 0.85), 2) + vw;
+  @return clamp($min, $prefered, $max);
+}
+// pcの値を基にso用のclamp推奨値を自動生成
+// todo clamp_auto_magnifみたいな名前にしたい
+@function clamp_auto_pc2sp($pc, $magnif: 0.6) {
+  @if type-of($pc) != number {
+    @warn 'pc #{ $pc } is not a number.';
+    @return $pc;
+  }
+  @if type-of($magnif) != number {
+    @warn 'magnif #{ $magnif } is not a number.';
+    @return $magnif;
+  }
+  $base: decimal-round(calc(v.$pc_min / 100), 2);
+  $prefered: decimal-round(calc($pc / $base * 0.8), 2) + vw;
+  $min: math.round(calc($pc * $magnif));
+  @return clamp($min, $prefered, $pc);
+}
+// pxをemに変換
+@function px2em($parent_font_size, $px) {
+  @if meta.type-of($parent_font_size) != number {
+    @warn 'parent_font_size #{ $parent_font_size } is not a number.';
+    @return $parent_font_size;
+  }
+  @if meta.type-of($px) != number {
+    @warn 'px #{ $px } is not a number.';
+    @return $px;
+  }
+  @return decimal-round(calc($px / $parent_font_size), 2) + em;
+}
+
+// todo このへんリファクタリングしたい、FWさんのやつを参考に
+// 小数の端数処理
+// _decimal.scss | MIT License | gist.github.com/terkel/4373420
+@function decimal-round($number, $digits: 0, $mode: round) {
+  $n: 1;
+  // $number must be a number
+  @if meta.type-of($number) != number {
+    @warn '#{ $number } is not a number.';
+    @return $number;
+  }
+  // $digits must be a unitless number
+  @if meta.type-of($digits) != number {
+    @warn '#{ $digits } is not a number.';
+    @return $number;
+  } @else if not math.is-unitless($digits) {
+    @warn '#{ $digits } has a unit.';
+    @return $number;
+  }
+  @for $i from 1 through $digits {
+    $n: $n * 10;
+  }
+  @if $mode == round {
+    @return math.div(math.round($number * $n), $n);
+  } @else if $mode == ceil {
+    @return math.div(math.ceil($number * $n), $n);
+  } @else if $mode == floor {
+    @return math.div(math.floor($number * $n), $n);
+  } @else {
+    @warn '#{ $mode } is undefined keyword.';
+    @return $number;
+  }
+}
+@function decimal-ceil($number, $digits: 0) {
+  @return decimal-round($number, $digits, ceil);
+}
+@function decimal-floor($number, $digits: 0) {
+  @return decimal-round($number, $digits, floor);
+}
+
+// https://yuyakinoshita.com/blog/2020/01/20/line-height-crop/
+// lineHeightCrop（line-heightの不要な余白を打ち消す）のmixin
+@mixin lineHeightCrop($line-height) {
+  &::before {
+    display: block;
+    width: 0;
+    height: 0;
+    margin-top: calc((1 - #{$line-height}) * 0.5em);
+    content: "";
+  }
+  &::after {
+    display: block;
+    width: 0;
+    height: 0;
+    margin-bottom: calc((1 - #{$line-height}) * 0.5em);
+    content: "";
+  }
+}

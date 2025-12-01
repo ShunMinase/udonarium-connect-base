@@ -1,0 +1,245 @@
+@use "../foundation/functions" as f;
+@use "../foundation/variables" as v;
+
+/*=======================================
+  ページ制御系
+=======================================*/
+// 4kモニタのみで反映させ、pc以下に引継ぎたくない場合
+@mixin uhd {
+  @media (min-width: (1921px)) {
+    @content;
+  }
+}
+// pcのみで反映させ、tab以下に引継ぎたくない場合
+@mixin pc {
+  @media (min-width: (v.$tab_max + 1)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media (max-width: (v.$tab_max)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: (v.$sp_max)) {
+    @content;
+  }
+}
+// 374px以下の小さめの端末
+@mixin sp_s {
+  @media (max-width: 374px) {
+    @content;
+  }
+}
+// 任意の幅以下
+@mixin mq($max-width) {
+  @media (max-width: ($max-width)) {
+    @content;
+  }
+}
+// マウス系のデバイス
+@mixin hover_device {
+  @media (any-hover: hover) {
+    @content;
+  }
+}
+// タッチ系のデバイス
+@mixin touch_device {
+  @media (any-hover: none) {
+    @content;
+  }
+}
+//縦長
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+//横長
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+// aタグの色を一括で変更したい場合(aタグの中で使う)
+@mixin anchor_color($color) {
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: $color;
+  }
+}
+
+@mixin poppins_yakuhan {
+  font-family: v.$noto_yakuhan;
+  // letter-spacing: 0.03em;
+}
+
+@mixin noto {
+  font-family: v.$noto;
+  // letter-spacing: 0.07em;
+}
+
+@mixin noto_yakuhan {
+  font-family: v.$noto_yakuhan;
+  // letter-spacing: 0.07em;
+}
+
+// 点線を生成
+@mixin dashed_border($height: 1px, $dash: 3px, $spacing: 5px, $color: #aaa) {
+  display: block;
+  height: $height;
+  position: relative;
+  &::before {
+    content: "";
+    background-image: linear-gradient(
+      to right,
+      $color 0px,
+      $color $dash,
+      transparent $dash,
+      transparent #{$dash + $spacing}
+    );
+    background-size: #{$dash + $spacing} $height;
+    background-repeat: repeat-x;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+// テキストを省略
+@mixin line_clamp($line) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+}
+// テキストを日英ともに縦書き
+@mixin text_vertical {
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+}
+
+@mixin dot_filter($size: 7px) {
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 7%, transparent 7%); //https://webparts.cman.jp/box/dot/
+    background-position:
+      0 0,
+      13px 13px;
+    background-size: 22px 22px;
+  }
+}
+@mixin dot_filter_fv($size: 10px) {
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgb(4 4 4) 8%, transparent 8%);
+    background-position:
+      0 0,
+      13px 13px;
+    background-size: 30px 30px;
+    @include tab {
+      background-image: radial-gradient(rgb(0 0 0) 11%, transparent 11%);
+      background-position:
+        0 0,
+        24px 24px;
+      background-size: 18px 18px; // 密度
+    }
+    @include sp {
+    }
+  }
+}
+
+@mixin content_width($width: v.$pc_min) {
+  max-width: calc($width + v.$body_pd + v.$body_pd);
+  width: 100%;
+  padding-left: v.$body_pd;
+  padding-right: v.$body_pd;
+  margin-left: auto;
+  margin-right: auto;
+  @include sp {
+    max-width: calc($width + v.$body_pd_sp + v.$body_pd_sp);
+    padding-left: v.$body_pd_sp;
+    padding-right: v.$body_pd_sp;
+  }
+}
+@mixin external_link_icon {
+  position: relative;
+  padding-right: 0.5em;
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-image: url("/img/common/new_window.svg");
+    background-repeat: no-repeat;
+    width: 0.6em;
+    height: 0.6em;
+    bottom: 0.25em;
+    right: -0.4em;
+  }
+}
+
+@mixin custom_scrollbar($width: 4px, $track_color: #eee, $thumb_color: v.$gray) {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 100vh;
+    background: $track_color;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $thumb_color;
+    border-radius: 100vh;
+    box-shadow: none;
+  }
+}
+// 親要素の幅を超えて画面横幅いっぱいに広げる
+@mixin spread_over_parent() {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+
+// 英語の単語が途中で改行されないようにしたりして改行をいい感じにする
+@mixin adjust_break_word() {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+// 日本語の改行をいい感じにしてくれるやつ
+// safariではまだ動かない
+@mixin adjust_ja_break() {
+  word-break: auto-phrase;
+  line-break: strict; // 禁則処理
+  // text-wrap: balance; これを使うとバランスよく改行してくれるらしい
+}
+
+// <wbr />タグを使って改行をいい感じにする
+@mixin use_wbr {
+  word-break: keep-all; // wbrで囲んだ中身は日本語が記号でしか改行されなくなるので注意、長すぎるとはみ出る恐れあり
+  overflow-wrap: anywhere;
+  white-space: pre-wrap; // iphoneではこれがないと折り返されない
+}
+
+// 郵便番号アイコン（WordPress版から移植）
+@mixin postal_icon {
+  content: "📮";
+  font-size: 16px;
+}

@@ -1,0 +1,229 @@
+// @use "../foundation/variables" as v;
+
+// /*==============================
+// リセットCSS
+// ==============================*/
+// html,
+// body,
+// div,
+// span,
+// applet,
+// object,
+// iframe,
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// p,
+// blockquote,
+// pre,
+// a,
+// abbr,
+// acronym,
+// address,
+// big,
+// cite,
+// code,
+// del,
+// dfn,
+// em,
+// img,
+// ins,
+// kbd,
+// q,
+// s,
+// samp,
+// small,
+// strike,
+// strong,
+// sub,
+// sup,
+// tt,
+// var,
+// b,
+// u,
+// i,
+// center,
+// dl,
+// dt,
+// dd,
+// ol,
+// ul,
+// li,
+// fieldset,
+// form,
+// label,
+// legend,
+// table,
+// caption,
+// tbody,
+// tfoot,
+// thead,
+// tr,
+// th,
+// td,
+// article,
+// aside,
+// canvas,
+// details,
+// embed,
+// figure,
+// figcaption,
+// footer,
+// header,
+// hgroup,
+// menu,
+// nav,
+// output,
+// ruby,
+// section,
+// summary,
+// time,
+// mark,
+// audio,
+// video {
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+//   font-size: 100%;
+//   vertical-align: baseline;
+//   font-weight: inherit;
+//   line-height: 1;
+//   font-style: normal;
+// }
+// // HTML5 display-role reset for older browsers
+// article,
+// aside,
+// details,
+// figcaption,
+// figure,
+// footer,
+// header,
+// hgroup,
+// menu,
+// nav,
+// section {
+//   display: block;
+// }
+// *,
+// *::before,
+// *::after {
+//   -webkit-box-sizing: border-box;
+//   -moz-box-sizing: border-box;
+//   -o-box-sizing: border-box;
+//   -ms-box-sizing: border-box;
+//   box-sizing: border-box;
+//   word-break: break-all;
+//   overflow-wrap: break-word;
+//   line-break: strict; // 禁則処理
+// }
+// ol,
+// ul {
+//   list-style: none;
+// }
+// blockquote,
+// q {
+//   quotes: none;
+// }
+// blockquote:before,
+// blockquote:after,
+// q:before,
+// q:after {
+//   content: "";
+//   content: none;
+// }
+// table {
+//   border-collapse: collapse;
+//   border-spacing: 0;
+// }
+
+// // これがあると、スクロール系のJSを書いた際に挙動が全てsmoothになってしまう
+// // html:focus-within {
+// //   scroll-behavior: smooth;
+// // }
+
+// input,
+// button,
+// textarea,
+// select {
+//   font: inherit;
+// }
+
+// button {
+//   padding: 0;
+//   border: none;
+//   outline: none;
+//   font: inherit;
+//   color: inherit;
+//   background: none;
+//   appearance: none;
+//   cursor: pointer;
+// }
+
+// // OSで視覚効果軽減の設定がある場合
+// // @media (prefers-reduced-motion: reduce) {
+// //   html:focus-within {
+// //     scroll-behavior: auto;
+// //   }
+// //   *,
+// //   *::before,
+// //   *::after {
+// //     animation-duration: 0.01ms !important;
+// //     animation-iteration-count: 1 !important;
+// //     transition-duration: 0.01ms !important;
+// //     scroll-behavior: auto !important;
+// //   }
+// // }
+
+// /*==============================
+// 独自Nomalize CSS
+// ==============================*/
+// body {
+//   position: relative;
+//   margin: 0;
+//   padding: 0;
+//   width: 100vw;
+//   max-width: 100%;
+//   -webkit-text-size-adjust: 100%; //一部のモバイル端末で使われる、テキストの自動拡大アルゴリズムを制御
+//   // font-family: v.$noto;
+//   font-family: v.$noto;
+//   font-weight: v.$fw_medium_500;
+//   letter-spacing: 0.07em;
+//   font-size: 16px;
+//   color: v.$letter_primary;
+//   background: v.$bg_primary;
+//   overflow-y: scroll;
+//   overflow-x: hidden;
+//   ::selection {
+//     color: v.$selection_text_color;
+//     background: v.$selection_bg;
+//   }
+// }
+// a {
+//   text-decoration: none;
+//   cursor: pointer;
+//   color: inherit;
+//   &:link {
+//     color: inherit;
+//   }
+//   &:visited {
+//     color: inherit;
+//   }
+//   &:hover {
+//     color: inherit;
+//   }
+//   &:active {
+//     color: inherit;
+//   }
+// }
+// img {
+//   vertical-align: top; // 画像の上下に微妙な隙間ができるのを防ぐ
+//   pointer-events: none; //リンクになっている画像をクリックした際、aのeventをちゃんと取得できるようにする
+//   height: auto; // レイアウトシフト対策
+//   &::selection {
+//     color: v.$selection_img_bg;
+//     background: v.$selection_img_bg;
+//   }
+// }

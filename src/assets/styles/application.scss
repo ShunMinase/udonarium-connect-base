@@ -1,0 +1,75 @@
+// Dart Sass
+
+/*==============================
+foundation
+==============================*/
+@use "foundation/fonts";
+@use "foundation/variables" as v;
+@use "foundation/foundation";
+@use "foundation/mixin";
+@use "foundation/functions";
+
+/*==============================
+layout
+==============================*/
+@use "layout/layout";
+
+/*==============================
+object
+==============================*/
+@use "object/component";
+@use "object/page";
+
+/*==============================
+utility
+==============================*/
+@use "utility/utility";
+
+// @use "project/boardgames/mine";
+
+/* Google Fonts - Tailwind v4方式 */
+
+// /*==============================
+// 独自Nomalize CSS
+// ==============================*/
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  max-width: 100%;
+  -webkit-text-size-adjust: 100%; //一部のモバイル端末で使われる、テキストの自動拡大アルゴリズムを制御
+  // font-size: 16px;
+  font-weight: v.$fw_regular_400;
+  /* Tailwind v4のthemeで定義したフォントファミリーとレタースペースを適用 */
+  font-family: v.$noto;
+  letter-spacing: 0.05em;
+  color: v.$letter_primary;
+  background: v.$navy;
+  overflow-y: scroll;
+  overflow-x: clip;
+  ::selection {
+    color: v.$selection_text_color;
+    background: v.$selection_bg;
+  }
+}
+a {
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
+}
+img {
+  vertical-align: top; // 画像の上下に微妙な隙間ができるのを防ぐ
+  pointer-events: none; //リンクになっている画像をクリックした際、aのeventをちゃんと取得できるようにする
+  // height: auto; // レイアウトシフト対策
+  &::selection {
+    color: v.$selection_img_bg;
+    background: v.$selection_img_bg;
+  }
+}
+
+/*==============================
+Tailwind CSS v4
+==============================*/
+// @import "tailwindcss";

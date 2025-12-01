@@ -1,0 +1,126 @@
+@use "@/assets/styles/foundation/variables" as v;
+@use "@/assets/styles/foundation/functions" as f;
+@use "@/assets/styles/foundation/mixin" as m;
+@use "@/assets/styles/foundation/animation" as a;
+
+/*=======================================
+  main
+=======================================*/
+#p__home {
+
+}
+
+.p__about {
+
+}
+
+.p__works_show {
+}
+
+#p__contact,
+#p__contact_confirm,
+#p__contact_submitted {
+
+}
+
+#p__contact_confirm {
+}
+
+#p__contact_submitted {
+
+}
+
+#p__notfound {
+  width: 100%;
+  // max-width: 100%;
+  overflow: hidden;
+  margin-bottom: f.clamp_prf(100px, 100px);
+  // margin: f.clamp_prf(80px, 200px) auto 0;
+  .top_logo_wrapper {
+    display: none;
+    padding-top: 40px;
+    @include m.tab {
+      display: block;
+    }
+  }
+  // .page_title_wrapper {
+  //   margin-top: f.clamp_prf(40px, 70px);
+  //   @include m.tab {
+  //     margin-top: clamp(100px, 20vh, 140px);
+  //   }
+  // }
+  .content_inner {
+    // @include m.content_width(v.$content_width);
+    margin-top: f.clamp_prf(80px, 200px);
+    text-align: center;
+    @include m.sp {
+      text-align: left;
+    }
+  }
+  .c__head_secondary {
+    text-align: center;
+  }
+  // .c__head_secondary,
+  .c__common_text_primary {
+    margin: f.clamp_prf(20px, 80px) auto 0;
+    text-align: center;
+  }
+  .c__button_primary {
+    margin: f.clamp_prf(40px, 80px) auto 0;
+  }
+}
+
+#p__terms {
+  width: 100%;
+  // max-width: 100%;
+  // overflow: hidden;
+  @include m.content_width(1000px);
+  padding-top: f.clamp_prf(40px, 140px);
+  padding-bottom: f.clamp_prf(90px, 204px);
+  // margin: f.clamp_prf(80px, 200px) auto 0;
+
+  // .page_title_wrapper {
+  //   margin-top: f.clamp_prf(40px, 70px);
+  //   @include m.tab {
+  //     margin-top: clamp(100px, 20vh, 140px);
+  //   }
+  // }
+  .terms_section {
+    // @include m.content_width(v.$content_width_m);
+    margin-top: f.clamp_prf(80px, 100px);
+  }
+  .section_header {
+    // color: #666;
+    font-weight: v.$fw_semibold_600;
+    margin-top: f.clamp_prf(40px, 50px);
+    font-size: f.clamp_prf(16px, 18px);
+  }
+  .c__common_text_primary {
+    margin-top: f.clamp_prf(20px, 20px);
+    line-height: 1.8;
+    a {
+      text-decoration: underline;
+      text-underline-offset: 0.3em;
+      &:hover {
+        transition: 0.15s;
+        opacity: 0.8;
+      }
+    }
+  }
+  ul {
+    list-style-type: disc;
+    padding: 14px 0 14px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-weight: v.$fw_light_300;
+    li {
+      font-size: 15px;
+      line-height: 1.5em;
+    }
+  }
+  .c__button_primary {
+    max-width: 244px;
+    margin: f.clamp_prf(40px, 80px) auto 0;
+  }
+}

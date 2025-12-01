@@ -1,0 +1,137 @@
+@use "sass:math";
+
+// プリミティブカラー
+$red: #FF8E5D;
+$blue: #00b5ff;
+$yellow: #ffd700;
+$lightgray: #f8f8f8;
+$gray: #ececec;
+$darkgray: #333333;
+$navy: #032441;
+$black: #000;
+$white: #fff;
+
+$yoake_grad_primary: linear-gradient(
+  180deg,
+  #032441 12%,
+  #005D7F 33%,
+  #7DB4C9 48%,
+  #FFB584 62%,
+  #FFA75D 82%,
+  #FF8E5D 100%
+);
+
+
+
+
+// セマンティックカラー
+// 文字色
+$letter_primary: $white;
+$letter_secondary: $white;
+
+// 背景色
+$bg_primary: $yoake_grad_primary;
+$bg_secondary: $darkgray;
+
+// テキスト選択色
+$selection_bg: #00182c;
+$selection_text_color: #fff;
+$selection_img_bg: #ffffff50;
+
+// フォント系 light: 300, regular: 400, medium: 500, semibold: 600, bold: 700
+$noto_yakuhan: "YakuHanJP", "Noto Sans JP", "Helvetica", "arial", sans-serif;
+$noto: "Noto Sans JP", "Helvetica", "arial", sans-serif;
+
+$fw_exlight_200: 200;
+$fw_light_300: 300;
+$fw_regular_400: 400;
+$fw_medium_500: 500;
+$fw_semibold_600: 600;
+$fw_bold_700: 700;
+$fw_black_900: 900;
+
+//ヘッダーの高さ
+$header_height: clamp(70px, 8vw, 70px);
+
+// 縦横比を固定する場合に使用
+$ratio_16_9: math.div(16, 9);
+$ratio_4_3: math.div(4, 3);
+$ratio_3_2: math.div(3, 2);
+$ratio_1_1: math.div(1, 1);
+$ratio_ogp: math.div(40, 21);
+
+// メディアクエリー用
+$pc_min: 1100px; // pcコンテンツ幅(clampの計算で使用中)
+$content_width: 1100px;
+$tab_max: 1000px;
+$sp_max: 712px;
+$body_pd: 110px;
+$body_pd_sp: clamp(35px, 6vw, 35px);
+
+
+
+
+
+
+
+
+/*=======================================
+  z-index管理
+=========================================
+
+---- 99999 ----
+#mouse_stalker
+
+---- 1000 -----
+
+
+---- 900 -----
+
+
+----- 20 -----
+#header_toggle
+
+----- 15 -----
+#header
+
+----- 12 -----
+
+----- 11 -----
+
+
+----- 10 -----
+#sp_menu
+
+----- 9 -----
+#pagetop_button
+
+----- 8 -----
+#footer
+
+----- 7 -----
+#l__funclub_button
+
+------ 5 ------
+
+
+------ 2 ------
+
+
+------ 1 ------
+
+
+------ -1 ------
+
+
+------ -10 -----
+
+
+------ -50 -----
+
+------ -100 ----
+
+
+------ -1000 ----
+
+
+*/
