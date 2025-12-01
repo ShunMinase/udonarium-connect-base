@@ -79,18 +79,20 @@ export default function Footer() {
                   <span className="ml-1">↗</span>
                 </a>
               </li>
-              <li>
+
+              {/* <li>
                 <a
                   href={DEVELOPER_TWITTER_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-[var(--color-primitive-neutral-600)] hover:text-[var(--color-brand-orange)] transition-colors inline-flex items-center"
                 >
-                  {/* TODO このへんの表記変えたい */}
+                  TODO このへんの表記変えたい
                   開発者 Twitter
                   <span className="ml-1">↗</span>
                 </a>
               </li>
+              
               <li>
                 <a
                   href={DEVELOPER_WEBSITE_URL}
@@ -98,19 +100,25 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-sm text-[var(--color-primitive-neutral-600)] hover:text-[var(--color-brand-orange)] transition-colors inline-flex items-center"
                 >
-                  {/* TODO このへんの表記変えたい */}
+                  TODO このへんの表記変えたい
                   開発者サイト
                   <span className="ml-1">↗</span>
                 </a>
-              </li>
+              </li> */}
+
+
+
             </ul>
           </div>
         </div>
 
         {/* コピーライト */}
         <div className="mt-8 pt-8 border-t border-[var(--color-card-border)]">
-          <p className="text-center text-sm text-[var(--color-primitive-neutral-500)]">
+          {/* <p className="text-center text-sm text-[var(--color-primitive-neutral-500)]">
             © {currentYear} <HeadlessLink href={DEVELOPER_WEBSITE_URL} target="_blank" rel="noopener noreferrer" className="underline">RYOZEN inc.</HeadlessLink> All rights reserved.
+          </p> */}
+          <p className="text-center text-sm text-[var(--color-primitive-neutral-500)]">
+            © {currentYear} ユドコネベース All rights reserved.
           </p>
           {/* TODO ユドコネとユドコネベース、両方のコピーライトをのせる */}
         </div>
